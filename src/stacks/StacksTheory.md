@@ -1,6 +1,13 @@
 Stacks:
 LIFO (Last In first out)
 
+Dynamic array under the hood
+
+Time complexity:
+
+Insert, Delete - O(1) constant time - because push and pop inserts/removes element from the top of the stack
+
+
 **Operations:**
 
 Push() 
