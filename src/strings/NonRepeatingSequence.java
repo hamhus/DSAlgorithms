@@ -1,6 +1,9 @@
 package strings;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class NonRepeatingSequence {
     //Method -1 : Time complexity - O(n^2); Space Complexity - O(n)
@@ -89,16 +92,61 @@ public class NonRepeatingSequence {
         return newStr;
     }
 
+    public static String printNonRepeatingSeq_SlidingWindow1(String str) {
+        String res="";
+        int left=0, right=0;
+        int max_length = Integer.MIN_VALUE;
+        Set<Character> charSet = new HashSet();
+
+        for(right=0; right<str.length(); right++)
+        {
+            char ch= str.charAt(right);
+            if(!charSet.contains(ch)) //if the char is not seen/repeating
+                charSet.add(ch);
+            else //char is repeating: store the result, delete the char from the hashset
+            {
+                if(right-left > max_length) {
+                    res = str.substring(left, right); //endIndex is exclusive
+                    max_length = right-left;
+                }
+                if(left<right && str.charAt(left) != ch || str.charAt(right-1) == ch || str.charAt(left+1) == ch)
+                {
+                    charSet.remove(ch);
+                    left++;
+                }
+                /*if(left<right && str.charAt(right-1) == ch)
+                {
+                    charSet.remove(ch);
+                    left++;
+                }*/
+                left++;
+            }
+        }
+        //After right traverses the whole string
+        if(str.length() - left > max_length)
+            res = str.substring(left, str.length());
+        return res;
+    }
     public static void main(String[] args)
     {
         //abcadefc
-        String str = "abacdb";
-
+        //zbaebqp
+        //abacdb
+        //pwwkew
+        //aab
+        String str = "aab";
         //String newStr = printNonRepeatingSeq(str);
-
-        String newStr = printNonRepeatingSeq_SlidingWindow(str);
+        //String newStr = printNonRepeatingSeq_SlidingWindow(str);
+        String newStr = printNonRepeatingSeq_SlidingWindow1(str);
         System.out.println("Longest non-repeating sequence : "+newStr);
         System.out.println("Longest non-repeating sequence length : "+newStr.length());
+
+        //List<List<Integer>> list = new ArrayList<Integer>();
+
+        List<Integer> list1 = new ArrayList<Integer>();
+
+        List<List<Integer>> lists;
+        lists = new ArrayList<List<Integer>>();
 
     }
 

@@ -28,7 +28,7 @@ public class BFS {
             boolean[] isVisited = new boolean[value];
             Deque<Integer> queue = new ArrayDeque<>();
 
-            queue.offer(0);
+            queue.offer(1);
 
             while(!queue.isEmpty())
             {
@@ -55,7 +55,7 @@ public class BFS {
 
     public static void main(String[] args)
     {
-        Graph graph = new Graph(5);
+        Graph graph = new Graph(6);
 
 //        graph.addEdge(1, 2);
 //        graph.addEdge(1, 5);
@@ -65,7 +65,15 @@ public class BFS {
 //
 //        graph.addEdge(3, 4);
 
-        graph.addEdge(0,1);
+        graph.addEdge(1,2);
+        graph.addEdge(1, 6);
+        graph.addEdge(1, 7);
+        graph.addEdge(2, 3);
+        graph.addEdge(2, 5);
+        graph.addEdge(6,5);
+        graph.addEdge(5,4);
+
+        /*graph.addEdge(0,1);
         graph.addEdge(0,4);
 
         graph.addEdge(1,2);
@@ -76,7 +84,7 @@ public class BFS {
         graph.addEdge(2,0);
 
         graph.addEdge(3,null);
-        graph.addEdge(4,null);
+        graph.addEdge(4,null);*/
 
         //graph.addEdge(5,2);
 
