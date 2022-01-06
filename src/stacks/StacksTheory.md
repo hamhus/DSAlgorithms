@@ -3,6 +3,8 @@ LIFO (Last In first out)
 
 Dynamic array under the hood
 
+Default capacity of a Stack is 10
+
 **Operations:**
 
 Push() 
