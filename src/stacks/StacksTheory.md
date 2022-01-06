@@ -3,11 +3,6 @@ LIFO (Last In first out)
 
 Dynamic array under the hood
 
-Time complexity:
-
-Insert, Delete - O(1) constant time - because push and pop inserts/removes element from the top of the stack
-
-
 **Operations:**
 
 Push() 
@@ -30,8 +25,12 @@ int element = stack.pop();
 	
 int element = stack.peek();
 	
-stack.search(6) returns 1 (position of element 6 is 1 in the stack (LIFO)))
+stack.search(6) -- returns 1 (position of element 6 is 1 in the stack (LIFO)))
   
+**Time complexity:**
+
+Insert, Delete - O(1) constant time - because push and pop inserts/removes element to/from the top of the stack	
+	
   ******
 **Important:**
   If there are no elements in the stack, stack.peek(), stack.pop() will result in an exception (java.util.EmptyStackException), 
