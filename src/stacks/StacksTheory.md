@@ -29,6 +29,8 @@ int element = stack.peek();
 	
 stack.search(6) -- returns 1 (position of element 6 is 1 in the stack (LIFO)))
 
+stack.size() - returns number of the elements in the stack
+	
 **Loop through the stack :**
 
 	for(Integer val:stack)
@@ -36,6 +38,13 @@ stack.search(6) -- returns 1 (position of element 6 is 1 in the stack (LIFO)))
                 //max = Math.max(max, val);
 		//min = Math.min(min, val);
             }
+	
+	OR 
+	
+	for(int i=0;i<stack.size();i++)	
+	{
+		
+	}
   
 **Time complexity:**
 
