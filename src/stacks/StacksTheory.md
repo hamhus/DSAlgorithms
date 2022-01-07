@@ -34,10 +34,10 @@ stack.size() - returns number of the elements in the stack
 **Loop through the stack :**
 
 	for(Integer val:stack)
-            {
-                //max = Math.max(max, val);
-		//min = Math.min(min, val);
-            }
+        {
+             max = Math.max(max, val);
+	     min = Math.min(min, val);
+        }
 	
 	OR 
 	
