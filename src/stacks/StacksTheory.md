@@ -29,7 +29,7 @@ int element = stack.peek();
 	
 stack.search(6) -- returns 1 (position of element 6 is 1 in the stack (LIFO)))
 
-**Loop through the stack : **
+**Loop through the stack :**
 
 	for(Integer val:stack)
             {
