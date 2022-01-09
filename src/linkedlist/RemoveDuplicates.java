@@ -21,7 +21,8 @@ public class RemoveDuplicates {
         and point the current to the next distinct node.
          */
 
-        //Instance of the head object
+        //Variable Instance of the head object, because head object should be preserved for the final list
+        //and not used for the iteration
         LinkedList current = linkedList;
         if(linkedList == null) return null;
         else if(linkedList.next == null) return linkedList;
@@ -29,12 +30,16 @@ public class RemoveDuplicates {
         //LinkedList curr = linkedList;
         while(current != null)
         {
+            //Take the next distinct node compare the values to see if they're equal
+            //and keep moving them to the next until a distinct node is obtained
             LinkedList nextCurrentNode = current.next;
             while(nextCurrentNode != null && current.value==nextCurrentNode.value)
             {
                 nextCurrentNode = nextCurrentNode.next;
             }
+            //Point the current next to the distinct node
             current.next = nextCurrentNode;
+            //Point to the next current node
             current = current.next;
         }
         //printLLNodes(linkedList);
