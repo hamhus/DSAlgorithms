@@ -14,7 +14,7 @@ public class BalancedBrackets {
         //I will see the solution implemented and code the proper solution in Solution-2
         char[] charArray = str.toCharArray();
         //Declare a stack
-        Stack<Character> stack = new Stack<Character>();
+        Stack<Character> stack = new Stack<>();
         for(int i=0; i<charArray.length; i++)
         {
             if(stack.empty() && (charArray[i] == ')' ||	charArray[i] == ']' || charArray[i] == '}'))
@@ -45,9 +45,7 @@ public class BalancedBrackets {
                 }
             }
         }
-        if(stack.empty()) return true;
-
-        return false;
+        return stack.empty();
     }
     public static boolean balancedBracketsOptimized(String str) {
         /* Logic:
@@ -56,9 +54,10 @@ public class BalancedBrackets {
         3. If there's a match, pop from the stack
 
         Edge cases:
+        (([]{})) - Correct
         ()} - Incorrect
         (({])) - Incorrect (because of {])
-        }(([])) - Incorrect (starts with a closing bracket
+        }(([])) - Incorrect (starts with a closing bracket)
          */
         //Matching and closing brackets declaration:
         String matchingBrackets = "([{";
@@ -84,7 +83,7 @@ public class BalancedBrackets {
             else if(closingBrackets.indexOf(ch) != -1)
             {
                 /*Check if the stack is empty.
-                If it's empty, it's an additional character that does not have an opening bracket
+                If it's empty, it's an additional (last closing bracket) character
                 example: ()}
                 */
                 if(stack.empty()) return false;
@@ -97,13 +96,12 @@ public class BalancedBrackets {
                     return false;
             }
         }
-        if(stack.empty()) return true;
-        return false;
+        return stack.empty();
     }
 
     public static void main(String[] args)
     {
-        String str = "(([]{]))";
+        String str = "(([]{}))";
         //balancedBrackets(str);
         System.out.println(balancedBracketsOptimized(str));
         //stack_pop(stack);
