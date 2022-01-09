@@ -1,7 +1,5 @@
 package linkedlist;
 
-import java.lang.constant.Constable;
-
 public class LLImplementation {
     static class LinkedList
     {
@@ -12,6 +10,33 @@ public class LLImplementation {
         {
             this.value = val;
             this.next = null;
+        }
+    }
+    private static void PrintNodes(LinkedList list)
+    {
+        while(list != null)
+        {
+            System.out.println(list.value);
+            list = list.next;
+        }
+    }
+    public static void InsertAtEnd(LinkedList head, LinkedList addNode)
+    {
+        LinkedList current = head;
+        while(current.next != null)
+        {
+            current = current.next;
+        }
+        current.next = addNode;
+        System.out.println("Added at the end");
+        printLLNodes(head);
+    }
+
+    private static void printLLNodes(LinkedList head) {
+        while(head != null)
+        {
+            System.out.println(head.value);
+            head = head.next;
         }
     }
 
@@ -28,19 +53,13 @@ public class LLImplementation {
             }
             current = current.next;
         }
+        printLLNodes(head);
     }
     static void RemoveNode(LinkedList list)
     {
 
     }
-    static void PrintNodes(LinkedList list)
-    {
-        while(list != null)
-        {
-            System.out.println(list.value);
-            list = list.next;
-        }
-    }
+
     public static void main(String[] args)
     {
         LinkedList ll1 = new LinkedList(5);
@@ -53,6 +72,10 @@ public class LLImplementation {
         ll2.next = ll3;
         ll3.next = ll4;
         ll4.next = ll5;
+
+        //PrintLLNodes(ll1);
+        InsertInMiddle(ll1, 7, new LinkedList(4));
+        //InsertAtEnd(ll1, new LinkedList(4));
 
     }
 }

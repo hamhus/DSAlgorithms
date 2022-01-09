@@ -12,28 +12,41 @@ public class RemoveDuplicates {
     }
 
     public static LinkedList removeDuplicatesFromLinkedList(LinkedList linkedList) {
-        // Write your code here.
+        /*Logic:
+        In the problem, it is given that the linked list is sorted,
+        because the list is sorted, all the duplicates are next to
+        each other.
+        Compare the next value and see if it's a duplicate.
+        If it's a duplicate, look for other duplicate in the sequence,
+        and point the current to the next distinct node.
+         */
+
+        //Instance of the head object
+        LinkedList current = linkedList;
         if(linkedList == null) return null;
         else if(linkedList.next == null) return linkedList;
-        LinkedList prev = linkedList;
+        //LinkedList prev = linkedList;
         //LinkedList curr = linkedList;
-        while(linkedList != null)
+        while(current != null)
         {
-            if(linkedList.next != null)
+            LinkedList nextCurrentNode = current.next;
+            while(nextCurrentNode != null && current.value==nextCurrentNode.value)
             {
-                if(linkedList.value == linkedList.next.value)
-                {
-                    linkedList.next = linkedList.next.next;
-                    //linkedList = linkedList.next;
-                }
-                //else
-                linkedList = linkedList.next;
+                nextCurrentNode = nextCurrentNode.next;
             }
-            else break;
+            current.next = nextCurrentNode;
+            current = current.next;
         }
+        //printLLNodes(linkedList);
         return linkedList;
     }
-
+    private static void printLLNodes(LinkedList head) {
+        while(head != null)
+        {
+            System.out.println(head.value);
+            head = head.next;
+        }
+    }
     public static void main(String[] args)
     {
        LinkedList ll1 = new LinkedList(1);
