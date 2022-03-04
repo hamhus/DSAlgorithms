@@ -5,21 +5,21 @@ import java.util.List;
 
 public class ProductSum {
 
-    public static int productSum(List<Object> array) {
+    public static int productSum(List<Object> array, int depth, int d) {
         // Write your code hereif(array==null) return -1;
         if(array==null) return -1;
         int sum = 0;
-        int depth = 1;
+        //int depth = 1;
         for(Object ele:array)
         {
             if(ele instanceof Integer)
             {
                 sum = sum + (int)ele;
             }
-            else if(ele instanceof int[])
+            else if(ele instanceof java.awt.List)
             {
                 depth++;
-                sum += depth * (productSum((int[])ele,0));
+                //sum += depth * (productSum(ele,0));
             }
         }
         //productSum(array, sum, depth);
@@ -31,6 +31,10 @@ public class ProductSum {
         //{
         //sum = sum+array[i];
         //}
+        for(int ele:array) {
+
+        }
+
         if(i>=array.length) return 0;
         return array[i]+productSum(array, i+1);
         //return sum;
@@ -53,6 +57,6 @@ public class ProductSum {
         list.add(new int[]{7,-1});
         list.add(3);
         list.add(ipList);
-        System.out.println(productSum(list));
+        //System.out.println(productSum(list, 1));
     }
 }
